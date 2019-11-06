@@ -3,6 +3,7 @@ import random
 import os
 
 '''
+慎用，会直接对 windows 的注册表操作，在不同的电脑上可能会造成意向不到的后果
 需要通过 ipconfig -all 查看网卡描述信息，逐个和 4D36E972-E325-11CE-BFC1-08002BE10318 
 中目录下的 DriverDesc 值进行对比，找到自己需要配置的网卡是哪个
 这边我的无线网卡通过比在 0013 中。
@@ -13,7 +14,7 @@ AddRegCmd = r'reg add HKLM\SYSTEM\CurrentControlSet\Control\Class\{4D36E972-E325
 
 '''
 改类负责随机生成合法可用的 mac 地址
-mac 地址例如："2A1B4C3D6E00"
+mac 地址例如："16B936405872"
 '''
 class GenSerialNum():
   field = string.digits + 'ABCDEF'
@@ -34,6 +35,7 @@ if __name__ == '__main__':
   os.system(delRegCmd)
   os.system(AddRegCmd+mac)
   print(mac)
+
 
 
 
