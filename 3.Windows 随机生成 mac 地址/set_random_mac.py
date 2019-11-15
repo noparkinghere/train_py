@@ -1,13 +1,15 @@
+'''
+慎用，会直接对 windows 的注册表操作，测试不充分，在不同的电脑上可能会造成意向不到的后果
+需要通过 ipconfig -all 查看网卡描述信息，逐个和 4D36E972-E325-11CE-BFC1-08002BE10318
+中目录下的 DriverDesc 值进行对比，找到自己需要配置的网卡是哪个
+这边我的无线网卡通过比对在 0013 中。
+'''
+
 import string
 import random
 import os
 
-'''
-慎用，会直接对 windows 的注册表操作，在不同的电脑上可能会造成意向不到的后果
-需要通过 ipconfig -all 查看网卡描述信息，逐个和 4D36E972-E325-11CE-BFC1-08002BE10318 
-中目录下的 DriverDesc 值进行对比，找到自己需要配置的网卡是哪个
-这边我的无线网卡通过比在 0013 中。
-'''
+
 delRegCmd = r'reg delete HKLM\SYSTEM\CurrentControlSet\Control\Class\{4D36E972-E325-11CE-BFC1-08002BE10318}\0013\ /v NetworkAddress /f'
 queRegCmd = r'reg query HKLM\SYSTEM\CurrentControlSet\Control\Class\{4D36E972-E325-11CE-BFC1-08002BE10318}\0013\ /v NetworkAddress '
 AddRegCmd = r'reg add HKLM\SYSTEM\CurrentControlSet\Control\Class\{4D36E972-E325-11CE-BFC1-08002BE10318}\0013\ /v NetworkAddress /t REG_SZ /d '

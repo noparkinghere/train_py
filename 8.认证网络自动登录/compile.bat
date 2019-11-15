@@ -1,0 +1,1 @@
+pyinstaller -F -c -w -i 1.ico login.py

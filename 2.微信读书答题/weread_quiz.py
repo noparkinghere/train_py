@@ -9,9 +9,10 @@ import time
 searchEngine = {'百度':"https://www.baidu.com/s?wd=", '搜狗':"https://www.sogou.com/web?query=" }
 
 # tmpPos1 = (1442, 359, 1832, 455)
-tmpPos1 = (731, 345, 1185, 473)
+# tmpPos1 = (731, 345, 1185, 473)
+tmpPos1 = (1440, 376, 1868, 505)
 # tmpPos2 = (1442, 456, 1832, 790)
-tmpPos2 = (731, 472, 1185, 837)
+tmpPos2 = (1440, 495, 1868, 837)
 
 def GetPic(pos=(1383, 433, 1826, 543), ans=tmpPos2):
   im = ImageGrab.grab(bbox=pos)
@@ -109,14 +110,20 @@ def QuizSearch(s):
 
 
 def fun():
-  for i in range(1000):
+  # 自动循环调用，截图比对检索
+  # 存在一定的问题，vsor 投屏后同一张图会轻微的波动，出现比对的变化
+  while True:
     # QuizSearch()
+    time.sleep(0.5)
     GetPic(tmpPos1)
     if DiffImg() == True:
       time.sleep(0.1)
     else:
-      time.sleep(1)
       QuizSearch('搜狗')
+      
+  # 手动按键调用检索
+  
+  # adb 手机截图比对检索
 
 
 if __name__ == '__main__':

@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+				<link title=css1 href="/css/default.css" type=text/css rel=stylesheet>
+				<link title=css1 href="/css/defaultpush.css" type=text/css rel=stylesheet>
+				<link title=css1 href="./css/public.css?t=528" type=text/css rel=stylesheet>
+				<script type="text/javascript" src="/js/niftycube.js"></script>
+				<script type="text/javascript" src="/js/crypt.js"></script>
+				<script type="text/javascript" src="/js/netentsec.js"></script>
+				<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<title>用户认证系统 登录界面 </title>
+		</head>
+		<body>
+				<form class="form-horizontal" action="/login" method="post" name="loginForm" id="loginForm">
+					<input type=hidden id="uri" name='uri'>
+					<input type=hidden id="terminal" name="terminal" value='pc'>
+					<input type=hidden id="login_type" name="login_type" value=''>
+					<input type=hidden id="check_passwd" name="check_passwd" value="0">
+					<input type=hidden id="show_tip" name='show_tip' value="block">
+					<input type=hidden id="show_change_password" name='show_change_password' value="block">
+					<input type=hidden id="short_message" name='short_message' value="none">
+					<input type=hidden id="show_captcha" name='show_captcha' value="none">
+					<input type=hidden id="show_read" name='show_read' value="block">
+					<input type=hidden id="show_assure" name='show_assure' value="none">
+					<div class="main">
+							<!--head部分-->
+							<div id="head" class="head_c">
+									<div style="position: absolute; left: 8%;">
+											<div id="head_logo" class="head_logo_c">
+												<img src="./images/logo.jpg?t=63" style="width:155px; height:60px;">
+											</div>
+											<div id="head_divide_line" class="head_divide_line_c"></div>
+											<div id="head_title" class="head_title_c">
+													上海中核维思仪器仪表企业网络登录认证系统											</div>
+									</div>
+							</div>
+							
+							<!--middle部分-->
+							<div id="middle" class="middle_c middle_show_c">
+									<div id="middle_tip" class="middle_tip_c" style="display:block;">
+											上网须知：<br /><br />1）请大家自觉遵守公司既定的信息安全规定；<br />2）您上网的访问信息有可能会被记录，一旦出现违规问题将会依据公司规定以及国家法规进行处理；<br />3）如果您在实际使用中发现有任何问题，请联系网管人员及时处理，避免对工作造成不必要的麻烦。<br />									</div>
+									
+									<div id="middle_form" class="middle_form_c middle_form_show_c">
+											<div class="middle_form_head_c"></div>
+											
+											<div id="username_div" class="control-group username_div_offset" style="height:25px;">
+									      <label class="control-label" for="username">账&nbsp;号：</label>
+									      <div class="controls">
+									        <input type="text" class="input-large" id="username" name="username" placeholder="登录账号">
+									      </div>
+									    </div>
+									    <div id="assure_phone_div" class="control-group " style="height:25px;display:none;">
+									      <label class="control-label" for="assure_phone">手机号：</label>
+									      <div class="controls">
+									        <input type="text" class="input-large" id="assure_phone" name="assure_phone" value="" placeholder="用于接收、确认动态密码">
+									      </div>
+									    </div>
+											<div id="password_div" class="control-group" style="height:25px;">
+												<label class="control-label" for="password1">密&nbsp;码：</label>
+												<div class="controls">
+													<input type="password" class="input-large" id="password1" name="password1" placeholder="密码">
+													<input id="password" name="password" type="hidden">
+												</div>
+											</div>
+											<div id="new_password_div" class="change_password_public_div" style="display: none;">
+									      <label class="control-label" for="new_password">新密码：</label>
+									      <div class="controls">
+									        <input type="password" class="input-large" id="new_password" name="new_password" placeholder="新密码" value="">
+									      </div>
+									    </div>
+									    <div id="retry_password_div" class="change_password_public_div" style="display: none;">
+									      <label class="control-label" for="retype_newpassword">确认密码：</label>
+									      <div class="controls">
+									        <input type="password" class="input-large" id="retype_newpassword" name="retype_newpassword" placeholder="重复新密码" value="">
+									      </div>
+									    </div>
+											<div id="captcha_div" class="change_password_public_div" style="display:none;">
+									      <label class="control-label" for="captcha_value">验证码：</label>
+									      <div class="controls">
+									        <input type="text" class="input-medium" id="captcha_value" name="captcha_value" value="">
+									        <img title="看不清，点击换一张" style="cursor:pointer;width:60px;height:27px;" src="/login/captcha.php?rand=846148321" id='captcha' onclick="refreshCaptcha();">
+									      </div>
+									    </div>
+											<div id="get_password_button_div" class="login_button_div" style="_margin-left: 102px;display: none;">
+										      <input id="get_password_button" name="get_password_button" class="middle_form_username_input_mobilepassword_button" style="width:223px;" value="短信获取密码" type="button" onclick="get_short_message_password();">
+										  </div>
+											
+											<div id="remember_div" class="remember_div">
+												<div class="controls">
+													<label id="save_user_label" class="checkbox inline" style="*width: 100px;_padding-left:100px;">
+													  <input style="*width: 20px;" id="save_user" name="save_user" value=1 type="checkbox" onclick="if(this.checked==false)form.save_pass.checked=false">记住账号
+													</label>
+													<label id="save_password_label" class="checkbox inline" style="*width: 100px;">
+													  <input style="*width: 20px;" id="save_pass" name="save_pass" value=1 type="checkbox" onclick="if(this.checked==true)form.save_user.checked=true">记住密码
+													</label>
+												</div>
+											</div>
+											<div id="read_div" class="read_div" style="height:27px;display:block;">
+												<div class="controls">
+													<label id="read_label" class="checkbox" style="*width: 230px;_padding-left:100px;">
+													  <input style="*width: 20px;" id="read" name="read" value=1 type="checkbox" checked="" onclick="click_readme();">我已阅读上述说明并承诺遵守规定
+													</label>
+												</div>
+											</div>
+											<div id="login_button_div" class="login_button_div login_button_div_offset" style="_margin-left: 102px;">
+										      <input type="button" id="submit_button_1" class="middle_form_login_c2" style="width:105px;float: left;" value="登录" onclick="submitbutton('login');">
+										      <a id="change_password_href" href="#" class="change_password_link" onclick="login_page_function_shift('1');" style="padding-left:100px;display:block;">修改密码</a>
+										  </div>
+											<div id="change_password_button_div" class="login_button_div" style="_margin-left: 102px;display: none;">
+										      <input type="button" class="middle_form_login_c2_e" style="width:105px;" value="修改密码" onclick="submitbutton('changepass');">
+										      <a href="#" class="change_password_link" onclick="login_page_function_shift('2');">返回登录</a>
+										  </div>
+									</div>
+							</div>
+							
+							<!--bottom部分-->
+							<div id="bottom" class="bottom_c">
+									<div style="width: 300px;position: absolute; left: 8%;padding-top:10px;color: #808583;text-align: left;font-size: 8pt; font-family: Microsoft YaHei;">
+											技术支持：上海亚湾通信设备有限公司 021-51096390<br />邮件支持：yangxueyuan@shyawan.com									</div>
+									<div style="position: absolute; right: 8%;padding-top:30px;color: #808583;font-size: 8pt; font-family: Microsoft YaHei;">
+											版权所有 2004-2013 上海中核维思仪器仪表有限公司									</div>
+							</div>
+							<div style="margin-top:10px; font-size: 14px;">
+		                <a href="#" onclick="switch_client('mobile');">返回手机版</a>
+		          </div>
+					</div>
+				</form>
+				<script>
+						document.getElementById('uri').value=window.location.search.substr(1, window.location.search.length-1);
+						setSave();
+				</script>
+	  </body>
+</html>
