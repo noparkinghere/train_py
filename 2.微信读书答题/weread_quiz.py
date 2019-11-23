@@ -12,7 +12,7 @@ searchEngine = {'百度':"https://www.baidu.com/s?wd=", '搜狗':"https://www.so
 # tmpPos1 = (731, 345, 1185, 473)
 tmpPos1 = (1440, 376, 1868, 505)
 # tmpPos2 = (1442, 456, 1832, 790)
-tmpPos2 = (1440, 495, 1868, 837)
+tmpPos2 = (440, 495, 868, 837)
 
 def GetPic(pos=(1383, 433, 1826, 543), ans=tmpPos2):
   im = ImageGrab.grab(bbox=pos)

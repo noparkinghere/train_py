@@ -15,6 +15,12 @@ class IntAuthLogin:
   def __init__(self):
     pass
   
+  def log(self, content):
+    with open('log', 'a+') as f:
+      out = time.asctime()+'***'+content+'\n'
+      f.write(out)
+      print(out)
+  
   def VisitSite(self):
     url = 'http://114.114.114.114:90/p/30247dd99271a6806206be0598a1cf9e/index.html?d3d3LmdzdGF0aWMuY29tL2dlbmVyYXRlXzIwNA=='
     headers = {
@@ -54,7 +60,7 @@ class IntAuthLogin:
   def IsVisitable(self, visit):
     res = os.popen(visit).read()
     if re.search(r'无法访问目标主机|传输失败', res) is not None:
-      print(res)
+      # print(res)
       return False
     else:
       # print(res)
@@ -62,10 +68,10 @@ class IntAuthLogin:
     
   def SetNet(self):
     if not self.IsVisitable(self.inVisit):
-      print("内网异常")
+      self.log("内网异常")
       a = SetMacAddr()
       mac = a.genMacAddr()
-      print(mac)
+      self.log("更换 mac 地址："+mac)
       # 更换 MAC 地址
       a.setAddr(mac=mac)
       # 重启无线网卡，系统更新 mac 地址
@@ -80,20 +86,21 @@ class IntAuthLogin:
       self.VisitSite()
       self.LoginSite()
     elif not requests.get('http://www.baidu.com').headers.__contains__('Connection'):
-      print("外网异常")
+      self.log("外网异常")
       self.VisitSite()
       self.LoginSite()
     else:
-      print("所有网络连接正常")
+      self.log("所有网络连接正常")
+      pass
 
 
 if __name__ == '__main__':
   cnt = 0
   while True:
-  # while cnt != 1:
+  # while cnt != 1000:
     a = IntAuthLogin()
     a.SetNet()
-    print(cnt)
+    # print(cnt)
     cnt += 1
     with open('record', 'w') as f:
       content = '第 ' + str(cnt) + ' 次自动登录！'

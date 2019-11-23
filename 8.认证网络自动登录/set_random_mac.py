@@ -42,7 +42,7 @@ class SetMacAddr():
     # os.system(self.delRegCmd.replace('0013', key))
     # os.system(self.AddRegCmd.replace('0013', key) + mac)
     # os.system(self.queRegCmd.replace('0013', key))
-    print(res)
+    # print(res)
 
 
 # 文件内测试调用
@@ -50,7 +50,7 @@ if __name__ == '__main__':
   a = SetMacAddr()
   mac = a.genMacAddr()
   a.setAddr(mac)
-  print(mac)
+  # print(mac)
 
 
 
