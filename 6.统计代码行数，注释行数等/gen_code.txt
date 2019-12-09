@@ -19,7 +19,18 @@ class GenSerialNum():
 ###
 ##
 
+'''
+这是一个测试文本文件，
+并非代码文件，
+没有实际的用处
+'''
+
 '''fsdfdsf'''
+'''fsdfdsf'''
+'''fsdfdsf'''
+'''fsdfdsf'''
+'''fsdfdsf'''
+'''
 
 ##sdf
 # 文件内测试调用

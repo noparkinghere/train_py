@@ -3,12 +3,8 @@ import string
 import random
 import sys
 
-from PyQt5 import QtCore
 from PyQt5.QtCore import Qt
-from PyQt5.QtCore import QCoreApplication, QObject
-from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QWidget, QApplication, QPushButton, QMessageBox, QDesktopWidget, QHBoxLayout, QVBoxLayout, \
-  QGridLayout, QLineEdit, QTextEdit, QMainWindow, QLCDNumber, QSlider
+from PyQt5.QtWidgets import QApplication, QMessageBox, QMainWindow
 from my_gui import Ui_MainWindow
 
 symbol = {'digital': string.digits, 'lowerLetter': string.ascii_lowercase,
@@ -20,7 +16,7 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
   fieldlist = []
 
   def genRandomSingle(self, num):
-    rand_data = ''.join(random.sample(self.field, num))
+    rand_data = ''.join(random.choices(self.field, k=num))
     return rand_data
   
   def ModeSel(self):
@@ -35,80 +31,49 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
     self.CreateSignalSlot()
     
   def CreateSignalSlot(self):
-    self.checkBox.stateChanged.connect(self.AddDigtal)
-    self.checkBox.stateChanged.connect(self.Addlowercase)
-    self.checkBox.stateChanged.connect(self.Adduppercase)
-    self.checkBox.stateChanged.connect(self.Addpunctuation)
-    # self.checkBox.isDown.connect(self.RmDigtal)
-    # self.checkBox.isDown.connect(self.Rmlowercase)
-    # self.checkBox.isDown.connect(self.Rmuppercase)
-    # self.checkBox.isDown.connect(self.Rmpunctuation)
+    self.pushButton.clicked.connect(self.gen)
 
-  def AddDigtal(self, state):
-    self.fieldlist.append(state)
+  def gen(self):
+    if self.checkBox.checkState()  == Qt.Checked:
+      self.AddField(symbol['digital'])
+    if self.checkBox_2.checkState() == Qt.Checked:
+      self.AddField(symbol['lowerLetter'])
+    if self.checkBox_3.checkState() == Qt.Checked:
+      self.AddField(symbol['upperLetter'])
+    if self.checkBox_4.checkState() == Qt.Checked:
+      self.AddField(symbol['specSym'])
+    if self.checkBox.checkState() == Qt.Unchecked:
+      self.RmField(symbol['digital'])
+    if self.checkBox_2.checkState() == Qt.Unchecked:
+      self.RmField(symbol['lowerLetter'])
+    if self.checkBox_3.checkState() == Qt.Unchecked:
+      self.RmField(symbol['upperLetter'])
+    if self.checkBox_4.checkState() == Qt.Unchecked:
+      self.RmField(symbol['specSym'])
+      
+    if self.checkBox.checkState() == Qt.Unchecked \
+        and self.checkBox_2.checkState() == Qt.Unchecked \
+        and self.checkBox_3.checkState() == Qt.Unchecked \
+        and self.checkBox_4.checkState() == Qt.Unchecked:
+      QMessageBox.critical(self, '严重错误', '至少需要勾选一种字符！')
+    else:
+      self.field = ''.join(self.fieldlist)
+      self.textEdit.setText(self.genRandomSingle(self.spinBox.value()))
     
-  def Addlowercase(self, state):
-    self.fieldlist.append(state)
+  def AddField(self, state):
+    if state not in self.fieldlist:
+      self.fieldlist.append(state)
 
-  def Adduppercase(self, state):
-    self.fieldlist.append(state)
+  def RmField(self, state):
+    if state in self.fieldlist:
+      self.fieldlist.remove(state)
 
-
-  def Addpunctuation(self, state):
-    self.fieldlist.append(state)
-
-  def RmDigtal(self, state):
-    self.fieldlist.remove(state)
-
-  def Rmlowercase(self, state):
-    self.fieldlist.remove(state)
-
-  def Rmuppercase(self, state):
-    self.fieldlist.remove(state)
-
-  def Rmpunctuation(self, state):
-    self.fieldlist.remove(state)
   
-
 # 文件内测试调用
 if __name__ == '__main__':
   # 创建应用程序和对象
   app = QApplication(sys.argv)
   w = MyMainWindow(symbol['digital'], symbol['specSym'])
-  print(w.genRandomSingle(10))
+  # print(w.genRandomSingle(10))
   w.show()
   sys.exit(app.exec_())
-
-# class Example(QMainWindow):
-#
-#   def __init__(self):
-#     super().__init__()
-#
-#     self.initUI()
-#
-#   def initUI(self):
-#     btn1 = QPushButton("Button 1", self)
-#     btn1.move(30, 50)
-#
-#     btn2 = QPushButton("Button 2", self)
-#     btn3 = QPushButton("Button 2", self)
-#     btn2.move(150, 50)
-#
-#     text = QTextEdit(self)
-#
-#     text.setGeometry(QtCore.QRect(40, 30, 281, 241))
-#     text.setObjectName("textEdit")
-#
-#     btn2.move(350, 50)
-#
-#     btn1.clicked.connect(text.textChanged)
-#     btn2.clicked.connect(self.buttonClicked)
-#
-#     self.statusBar()
-#
-#     self.setGeometry(300, 300, 590, 500)
-#     self.setWindowTitle('Event sender')
-#     self.show()
-#
-#   def buttonClicked(self):
-#     sender = self.sender()
