@@ -8,10 +8,12 @@ import time
 import requests
 from set_random_mac import SetMacAddr
 
+IP_ADDR = "192.168.2."
+WEB_GATE = '192.168.2.1'
 
 class IntAuthLogin:
   outVisit = 'ping www.baidu.com'
-  inVisit = 'ping 192.168.18.1'
+  inVisit = "ping "+ WEB_GATE
   headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
     'Host': '114.114.114.114:90',
@@ -88,12 +90,12 @@ class IntAuthLogin:
         # 载入无线网的配置文件
         os.system("netsh wlan add profile filename=\"wlan0-YANFA.xml\"")
         while True:
-          if re.search('字节=.+时间=.+', os.popen('ping 192.168.18.1').read()) is None:
+          if re.search('字节=.+时间=.+', os.popen(self.inVisit).read()) is None:
             print(os.popen('ipconfig /all').read()\
               .split('以太网适配器 eth0:')[0].split('无线局域网适配器 wlan0:')[1]\
               .split('IPv4 地址')[1].split('首选')[0])
-            os.system("netsh interface ip set address \"wlan0\" static 192.168.18."\
-                      + str(random.choice(range(123, 255))) + " 255.255.255.0 192.168.18.1 1")
+            os.system("netsh interface ip set address \"wlan0\" static "+IP_ADDR+""\
+                      + str(random.choice(range(123, 255))) + " 255.255.255.0 " + WEB_GATE + " 1")
             os.system("netsh interface ip set dns \"wlan0\" static 8.8.8.8")
             time.sleep(3)
           else:
