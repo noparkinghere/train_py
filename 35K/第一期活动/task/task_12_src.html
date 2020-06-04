@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul class="container">
+    <li class=""><a href="/community/">论坛</a></li>
+    <li class="
+active"><a href="/team/team/">小组</a></li>
+    <li class=""><a href="/footprints/">精选</a></li>
+</ul>
+</div>
+
+</div>
+
+
+<!-- <div class="gradient-bar"> &nbsp; </div> -->
+
+
+<div class="container main-body teams">
+    <div class="row team-detail">
+        <div class="span8 alert alert-warning fade in hide">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+        <div class="span8">
+            <div class="page-header"><h3> 小组管理 </h3></div>
+            <ul class="nav nav-tabs" id="myTab">
+                <li class=""><a href="/team/update/10879/"> 更新小组信息</a></li>
+                <li class="active"><a href="/team/manage/#dismiss_container">小组成员</a></li>
+                <!-- close this tab, view & template are reserved <li class=""><a href="/team/manage/notification/">小组通知</a></li> -->
+                <li class=""><a href="/team/manage/message/">自动通知</a></li>
+                <li class=""><a href="/team/setqualification/10879">更新成员加入条件</a></li>
+                <li><a href="/team/expand/10879/" id="expand" confirm='确认要扩招小组吗？'>小组扩招</a></li>
+            </ul>
+            <div class="">
+                <div id="dismiss_container">
+                    <div class="btn-toolbar">
+                        <div class="btn-group"><span class="badge">0</span></label> </div>
+                        <div class="btn-group tools"></div>
+                        <span class="alert alert-warning hide"></span>
+                        <script id="assistant-toolbar-tmpl" type="text/x-jquery-tmpl">
+                             <button action="dispel" class="btn">踢除</button> <button action="notify" class="btn">小组通知</button>
+                        </script>
+                        <script id="leader-toolbar-normal" type="text/x-jquery-tmpl">
+                             <button action="dispel" class="btn">踢除</button> <button action="notify" class="btn">小组通知</button> <button action="upgrade" class="btn">升为助手</button>
+                        </script>
+                        <script id="leader-toolbar-assistant" type="text/x-jquery-tmpl">
+                             <button action="dispel" class="btn">踢除</button> <button action="notify" class="btn">小组通知</button> <button action="degrade" class="btn">降为普通组员</button> <button action="abdicate" class="btn">设为小组组长</button>
+                        </script>
+                    </div>
+                    <table id="members" class="table table-bordered ">
+                        <thead class="title">
+                        <tr>
+                            <th class="user">小组成员</th>
+                            <th class="points">贡献成长值</th>
+                            <th class="days">组龄</th>
+                            <th class="checkin_rate"><span>打卡率</span> <span class="icon pull-right"> <a
+                                    href="/team/manage/?t=checkin_rate"><i class="icon-caret-up active"></i></a> <a
+                                    href="/team/manage/?t=checkin_rate&r=1"><i class="icon-caret-down"></i></a> </span>
+                            </th>
+                            <th class="checked"><span>九月 3, 2019</span> <span class="icon pull-right"> <a
+                                    href="/team/manage/?t=checkin_yesterday"><i class="icon-caret-up"></i></a> <a
+                                    href="/team/manage/?t=checkin_yesterday&r=1"><i
+                                    class="icon-caret-down"></i></a> </span></th>
+                            <th class="checked"><span>九月 4, 2019</span> <span class="icon pull-right"> <a
+                                    href="/team/manage/?t=checkin_today"><i class="icon-caret-up"></i></a> <a
+                                    href="/team/manage/?t=checkin_today&r=1"><i class="icon-caret-down"></i></a> </span>
+                            </th> <!-- <th class="operation">操作</th> --> </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="member " role="2" data-id="6782977" data-name=JOY>
+                            <td class="user"
+                            "> <span class="checkbox"></span> <img
+                                src="https://media-image1.baydn.com/avatar/media_store/08d8949ca31023031ba40d72e9f52d7a.png@30w_30h"
+                                width="30" height="30" class="None"/> <a class="nickname"
+                                                                         href="/checkin/user/45723010/">JOY</a> </td>
+                            <td class="points">29700</td>
+                            <td class="days">975</td>
+                            <td class="rate"><span class="">99.9&#37;</span></td>
+                            <td class="checked"><span class="label label-success"> 已打卡 </span></td>
+                            <td class="checked"><span class="label label-important"> 未打卡 </span></td>
+                        </tr>
+                        <tr class="member " role="2" data-id="5142532" data-name=nelson>
+                            <td class="user"
+                            "> <span class="checkbox"></span> <img
+                                src="https://media-image1.baydn.com/avatar/media_store/857706fadbd920ba36010aa4d139643d.png@30w_30h"
+                                width="30" height="30" class="None"/> <a class="nickname"
+                                                                         href="/checkin/user/37524925/">nelson</a> </td>
+                            <td class="points">29862</td>
+                            <td class="days">1156</td>
+                            <td class="rate"><span class="">99.39&#37;</span></td>
+                            <td class="checked"><span class="label label-success"> 已打卡 </span></td>
+                            <td class="checked"><span class="label label-important"> 未打卡 </span></td>
+                        </tr>
+                        <tr class="member " role="2" data-id="5687302" data-name=bella2021>
+                            <td class="user"
+                            "> <span class="checkbox"></span> <img
+                                src="https://media-image1.baydn.com/avatar/media_store/8368614e1e1825bcaadf8fc5db4e6136.png@30w_30h"
+                                width="30" height="30" class="None"/> <a class="nickname"
+                                                                         href="/checkin/user/49771765/">bella2021</a> </td>
+                            <td class="points">43868</td>
+                            <td class="days">1103</td>
+                            <td class="rate"><span class="">99.37&#37;</span></td>
+                            <td class="checked"><span class="label label-success"> 已打卡 </span></td>
+                            <td class="checked"><span class="label label-important"> 未打卡 </span></td>
+                        </tr>
+                        <tr class="member " role="2" data-id="9484295" data-name=可可托海>
+                            <td class="user"
+                            "> <span class="checkbox"></span> <img
+                                src="https://media-image1.baydn.com/avatar_img/uoyqsv/6ca29b128d06082ce4a34dd9c7ff0fe7.1ad14681a5b73e5200f6899641ede415.jpg@30w_30h"
+                                width="30" height="30" class="None"/> <a class="nickname"
+                                                                         href="/checkin/user/83230969/">可可托海</a> </td>
+                            <td class="points">224</td>
+                            <td class="days">27</td>
+                            <td class="rate"><span class="">100.0&#37;</span></td>
+                            <td class="checked"><span class="label label-success"> 已打卡 </span></td>
+                            <td class="checked"><span class="label label-important"> 未打卡 </span></td>
+                        </tr>
+                        <tr class="member " role="2" data-id="8454157" data-name=就不想说>
+                            <td class="user"
+                            "> <span class="checkbox"></span> <img
+                                src="https://media-image1.baydn.com/people/avatar/4b1cabcda8b67aff94f588d5868a0ce4.png@30w_30h"
+                                width="30" height="30" class="None"/> <a class="nickname"
+                                                                         href="/checkin/user/56355085/">就不想说</a> </td>
+                            <td class="points">21564</td>
+                            <td class="days">618</td>
+                            <td class="rate"><span class="">99.68&#37;</span></td>
+                            <td class="checked"><span class="label label-success"> 已打卡 </span></td>
+                            <td class="checked"><span class="label label-important"> 未打卡 </span></td>
+                        </tr>
+                        <tr class="member " role="2" data-id="7782418" data-name=Hughe>
+                            <td class="user"
+                            "> <span class="checkbox"></span> <img
+                                src="https://media-image1.baydn.com/avatar/media_store/fa4988cc43662d65a22dbc3b84df76b8@30w_30h"
+                                width="30" height="30" class="None"/> <a class="nickname"
+                                                                         href="/checkin/user/16180909/">Hughe</a> </td>
+                            <td class="points">26172</td>
+                            <td class="days">788</td>
+                            <td class="rate"><span class="">97.97&#37;</span></td>
+                            <td class="checked"><span class="label label-success"> 已打卡 </span></td>
+                            <td class="checked"><span class="label label-important"> 未打卡 </span></td>
+                        </tr>
+                        <tr class="member " role="2" data-id="9472024" data-name=逢>
+                            <td class="user"
+                            "> <span class="checkbox"></span> <img
+                                src="https://media-image1.baydn.com/avatar_img/yyyyzr/ba0ddb8c0c707b519317b1c904165933.b8185f2830a311c95146bdea924c08f3.jpg@30w_30h"
+                                width="30" height="30" class="None"/> <a class="nickname"
+                                                                         href="/checkin/user/214545057/">逢</a> </td>
+                            <td class="points">726</td>
+                            <td class="days">60</td>
+                            <td class="rate"><span class="">100.0&#37;</span></td>
+                            <td class="checked"><span class="label label-success"> 已打卡 </span></td>
+                            <td class="checked"><span class="label label-important"> 未打卡 </span></td>
+                        </tr>
+                        <tr class="member " role="2" data-id="6776863" data-name=ElvisSu>
+                            <td class="user"
+                            "> <span class="checkbox"></span> <img
+                                src="https://media-image1.baydn.com/people/avatar/6c462b76799e83c7361e1ea0ef288c52.png@30w_30h"
+                                width="30" height="30" class="None"/> <a class="nickname"
+                                                                         href="/checkin/user/21206410/">ElvisSu</a> </td>
+                            <td class="points">29228</td>
+                            <td class="days">976</td>
+                            <td class="rate"><span class="">98.36&#37;</span></td>
+                            <td class="checked"><span class="label label-success"> 已打卡 </span></td>
+                            <td class="checked"><span class="label label-important"> 未打卡 </span></td>
+                        </tr>
+                        <tr class="member " role="2" data-id="9337520" data-name=胖旋>
+                            <td class="user"
+                            "> <span class="checkbox"></span> <img
+                                src="https://media-image1.baydn.com/avatar_img/ytzqsn/756aef7fdd33d781f4ecfa3ed195367f.6ab118b903dd5f631d61d694a4c80fed.jpg@30w_30h"
+                                width="30" height="30" class="None"/> <a class="nickname"
+                                                                         href="/checkin/user/205405580/">胖旋</a> </td>
+                            <td class="points">5966</td>
+                            <td class="days">247</td>
+                            <td class="rate"><span class="">100.0&#37;</span></td>
+                            <td class="checked"><span class="label label-success"> 已打卡 </span></td>
+                            <td class="checked"><span class="label label-important"> 未打卡 </span></td>
+                        </tr>
+                        <tr class="member " role="2" data-id="4145158" data-name=卖火柴的handsonwo809>
+                            <td class="user"
+                            "> <span class="checkbox"></span> <img
+                                src="https://media-image1.baydn.com/avatar/media_store/59e4da36877bad234f56f208fca7a0b4@30w_30h"
+                                width="30" height="30" class="None"/> <a class="nickname" href="/checkin/user/9461503/">卖火柴的handsonw
+                            ...</a> </td>
+                            <td class="points">45232</td>
+                            <td class="days">1243</td>
+                            <td class="rate"><span class="">99.28&#37;</span></td>
+                            <td class="checked"><span class="label label-success"> 已打卡 </span></td>
+                            <td class="checked"><span class="label label-important"> 未打卡 </span></td>
+                        </tr>
+                        <tr class="member " role="2" data-id="9312321" data-name=smile>
+                            <td class="user"
+                            "> <span class="checkbox"></span> <img
+                                src="https://media-image1.baydn.com/avatar_img/vozuol/f2e2aec33d0bc61d397fb0f7462e916c.4657168004ccfa6ecae044935515df41.jpg@30w_30h"
+                                width="30" height="30" class="None"/> <a class="nickname"
+                                                                         href="/checkin/user/86784298/">smile</a> </td>
+                            <td class="points">7718</td>
+                            <td class="days">286</td>
+                            <td class="rate"><span class="">100.0&#37;</span></td>
+                            <td class="checked"><span class="label label-success"> 已打卡 </span></td>
+                            <td class="checked"><span class="label label-important"> 未打卡 </span></td>
+                        </tr>
+                        <tr class="member " role="2" data-id="7710793" data-name=放下屠刀>
+                            <td class="user"
+                            "> <span class="checkbox"></span> <img
+                                src="https://media-image1.baydn.com/avatar/media_store/5db4dc79c2666a72c87405f4b5d97168.png@30w_30h"
+                                width="30" height="30" class="None"/> <a class="nickname" href="/checkin/user/9501499/">放下屠刀</a> </td>
+                            <td class="points">34332</td>
+                            <td class="days">805</td>
+                            <td class="rate"><span class="">99.88&#37;</span></td>
+                            <td class="checked"><span class="label label-success"> 已打卡 </span></td>
+                            <td class="checked"><span class="label label-important"> 未打卡 </span></td>
+                        </tr>
+                        <tr class="member " role="2" data-id="9322574" data-name=Chris(海外党）>
+                            <td class="user"
+                            "> <span class="checkbox"></span> <img
+                                src="https://media-image1.baydn.com/avatar/media_store/7719869d58e7040f1dc4c9c7c662a750.png@30w_30h"
+                                width="30" height="30" class="None"/> <a class="nickname"
+                                                                         href="/checkin/user/13193827/">Chris(海外党）</a> </td>
+                            <td class="points">10276</td>
+                            <td class="days">271</td>
+                            <td class="rate"><span class="">100.0&#37;</span></td>
+                            <td class="checked"><span class="label label-success"> 已打卡 </span></td>
+                            <td class="checked"><span class="label label-important"> 未打卡 </span></td>
+                        </tr>
+                        <tr class="member " role="2" data-id="5422093" data-name=耿耿>
+                            <td class="user"
+                            "> <span class="checkbox"></span> <img
+                                src="https://media-image1.baydn.com/people/avatar/22a948b1406c407dc51a7bfe71aee146.jpg@30w_30h"
+                                width="30" height="30" class="None"/> <a class="nickname" href="/checkin/user/4613320/">耿耿</a> </td>
+                            <td class="points">43490</td>
+                            <td class="days">1132</td>
+                            <td class="rate"><span class="">99.73&#37;</span></td>
+                            <td class="checked"><span class="label label-success"> 已打卡 </span></td>
+                            <td class="checked"><span class="label label-important"> 未打卡 </span></td>
+                        </tr>
+                        <tr class="member " role="2" data-id="4857937" data-name=35KTs_Bill>
+                            <td class="user"
+                            "> <span class="checkbox"></span> <img
+                                src="https://media-image1.baydn.com/avatar/media_store/ba9a12c1ee323b00ae5e78143dee510c.png@30w_30h"
+                                width="30" height="30" class="None"/> <a class="nickname"
+                                                                         href="/checkin/user/33467893/">35KTs_Bill</a> </td>
+                            <td class="points">49052</td>
+                            <td class="days">1188</td>
+                            <td class="rate"><span class="">99.24&#37;</span></td>
+                            <td class="checked"><span class="label label-success"> 已打卡 </span></td>
+                            <td class="checked"><span class="label label-important"> 未打卡 </span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="hide role_text">成员身份已经改变， 页面会马上刷新查看结果</div>
+                    <div class="pagination">
+                        <ul>
+</body>
+</html>

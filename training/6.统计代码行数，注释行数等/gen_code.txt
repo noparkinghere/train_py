@@ -1,0 +1,41 @@
+import string
+import random
+
+'''
+这是一个测试文本文件，
+并非代码文件，
+没有实际的用处
+'''
+class GenSerialNum():
+  field = string.digits + string.ascii_letters
+
+  def genRandomSingle(self, num):
+    rand_data = ''.join(random.sample(self.field, num))
+    return rand_data
+
+  def genRandomCode(self, len, num):
+    res = '-'.join([self.genRandomSingle(num) for i in range(len)])
+    return res
+###
+##
+
+'''
+这是一个测试文本文件，
+并非代码文件，
+没有实际的用处
+'''
+
+'''fsdfdsf'''
+'''fsdfdsf'''
+'''fsdfdsf'''
+'''fsdfdsf'''
+'''fsdfdsf'''
+'''
+
+##sdf
+# 文件内测试调用
+if __name__ == '__main__':
+  a = GenSerialNum()
+  # 只用于测试
+  #
+  print(a.genRandomCode(10, 10))

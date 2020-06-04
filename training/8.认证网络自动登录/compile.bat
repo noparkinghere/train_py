@@ -1,0 +1,1 @@
+pyinstaller -F -c -i 1.ico login.py set_random_mac.py

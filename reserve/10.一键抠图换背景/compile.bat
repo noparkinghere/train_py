@@ -1,1 +1,0 @@
-pyinstaller -p "C:\\Users\\Frank\\AppData\\Local\\Programs\\Python\\Python37\\Lib\\site-packages" -F -c -i 1.ico ch_pic_bg.py -w

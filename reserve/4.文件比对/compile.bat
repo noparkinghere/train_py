@@ -1,1 +1,0 @@
-pyinstaller -F -c -i 1.ico cmp.py -w
