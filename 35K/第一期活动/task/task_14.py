@@ -13,16 +13,22 @@
     @Change Activity:
   
 """
-
 from PIL import Image, ImageFont, ImageDraw
 
 
 def handle_img():
     image = Image.open('0.png')
     w, h = image.size
-    font = ImageFont.truetype('arial.ttf', 50)
+    if w > h:
+        h = h/w*200
+        w = 200
+    else:
+        w = w/h*200
+        h = 200
+    image = image.resize((200, 200))
+    font = ImageFont.truetype('arial.ttf', 80)
     draw = ImageDraw.Draw(image)
-    draw.text((4 * w / 5, h / 5), '5', fill=(255, 10, 10), font=font)
+    draw.text((3 * w / 5, h / 7), '5', fill=(255, 10, 10), font=font)
     image.save('0.0.png', 'png')
     
 

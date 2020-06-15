@@ -9,9 +9,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>360</width>
-    <height>442</height>
+    <width>361</width>
+    <height>431</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -104,7 +110,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>360</width>
+     <width>361</width>
      <height>23</height>
     </rect>
    </property>

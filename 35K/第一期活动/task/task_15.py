@@ -17,3 +17,18 @@
   
 """
 
+import re
+
+with open("task_15_test.txt", 'r') as f:
+    find_res = re.findall(r'[a-zA-Z]+', f.read())
+
+res_dict = {}
+for i in find_res:
+    if i not in res_dict:
+        res_dict[i] = 1
+    else:
+        res_dict[i] += 1
+print(res_dict)
+key=lambda s:s[5]
+print(sorted(res_dict.items(), key=lambda s:s[1], reverse=True))
+
