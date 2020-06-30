@@ -29,7 +29,7 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
       self.field += i
     # 设置信号与槽
     self.CreateSignalSlot()
-    self.MainWindow.resize(361, 431)
+    self.resize(361, 431)
     
   def CreateSignalSlot(self):
     self.pushButton.clicked.connect(self.gen)
